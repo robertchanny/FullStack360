@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+	
+	<!-- Angular Imports -->
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <!-- Angular App -->
+    <script type="text/javascript" src="../app/app.js"></script>
+
+    <!-- Angular Services -->
+	<script type="text/javascript" src="../app/services/restService.js"></script>
+
+    <!-- Angular Controllers -->
+    <script type="text/javascript" src="../app/controllers/home.js"></script>
+
+	<style>
+		input {
+			display: block;
+			margin: 10px 0;
+		}
+	</style>
+
+  </head>
+  <body ng-app="DemoApp" ng-controller="HomeController" ng-init="init()"> <!--ng-init says to fire immediately-->
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+    
+    <div>
+    	<h3>Register</h3>
+		<input ng-model="profile.firstName" type="text" placeholder="First Name">
+		<input ng-model="profile.lastName" type="text" placeholder="Last Name">
+		<input ng-model="profile.email" type="text" placeholder="E-mail">
+		<input ng-model="profile.password" type="password" placeholder="Password">
+
+		<button ng-click="registerProfile()">Submit</button>
+	</div>
+
+	<div>
+		<h3>List of Users</h3>
+		<ol>
+			<li ng-repeat="bitch in users"><% bitch.firstName %></li>
+		</ol>
+	</div>
+
+  </body>
+</html>
